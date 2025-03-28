@@ -1,41 +1,45 @@
-#OpenGoPoker
-A high-performance, distributed poker server built in Go, designed to handle millions of concurrent game tables with high availability, resilience, and crash recovery. Inspired by Erlang’s concurrency and fault-tolerance strengths (e.g., the OpenPoker project), OpenGoPoker leverages Go’s goroutines, gRPC, and Cassandra to deliver a modern, scalable poker platform.
+# OpenGoPoker
 
-Features
-Massive Concurrency: Supports millions of game tables using Go’s lightweight goroutines and the Actor Model, inspired by Erlang’s process-per-entity design.
-High Availability: Distributed architecture with no single point of failure, powered by Cassandra and Kubernetes.
-Resilience: Game state snapshots and event sourcing ensure crash recovery and consistency, adapting Erlang’s fault-tolerance ethos.
-Real-Time Communication: gRPC for low-latency client-server and inter-service interactions.
-Event Sourcing: Stores all game actions as events for replay, auditing, and state reconstruction.
-Tech Stack
-Golang: Core language for performance and concurrency.
-Actor Model: Implemented via goroutines and channels (or Proto Actor) for game table management.
-gRPC: High-performance RPC for client and server communication.
-Cassandra: Distributed database for game states, events, and player data.
-Event Sourcing: Persists game history with periodic snapshots.
-Docker/Kubernetes: Deployment and orchestration for scalability.
-Architecture
-Game Tables as Actors: Each table runs as an independent goroutine, processing player actions and maintaining state, echoing Erlang’s lightweight process model.
-gRPC Services: Manage client connections, game logic, and inter-service communication (e.g., matchmaking).
-Cassandra DB: Stores events, snapshots, and player data in a fault-tolerant, distributed system.
-Event Sourcing + Snapshots: Rebuilds game state from events, with snapshots for quick recovery.
-Load Balancing: Distributed across nodes with Kubernetes, inspired by Erlang’s cluster scalability.
-Prerequisites
-Go 1.21+
-Docker
-Cassandra 4.x
-gRPC and Protocol Buffers
-Kubernetes (optional, for production)
-Installation
-Clone the repository:
-bash
+A high-performance, distributed poker server built in Go, designed to handle millions of concurrent game tables with high availability, resilience, and crash recovery. Inspired by Erlang’s concurrency and fault-tolerance strengths (e.g., the *OpenPoker* project), *OpenGoPoker* leverages Go’s goroutines, gRPC, and Cassandra to deliver a modern, scalable poker platform.
 
-Collapse
+## Features
+- **Massive Concurrency**: Supports millions of game tables using Go’s lightweight goroutines and the Actor Model, inspired by Erlang’s process-per-entity design.
+- **High Availability**: Distributed architecture with no single point of failure, powered by Cassandra and Kubernetes.
+- **Resilience**: Game state snapshots and event sourcing ensure crash recovery and consistency, adapting Erlang’s fault-tolerance ethos.
+- **Real-Time Communication**: gRPC for low-latency client-server and inter-service interactions.
+- **Event Sourcing**: Stores all game actions as events for replay, auditing, and state reconstruction.
 
-Wrap
+## Tech Stack
+- **Golang**: Core language for performance and concurrency.
+- **Actor Model**: Implemented via goroutines and channels (or Proto Actor) for game table management.
+- **gRPC**: High-performance RPC for client and server communication.
+- **Cassandra**: Distributed database for game states, events, and player data.
+- **Event Sourcing**: Persists game history with periodic snapshots.
+- **Docker/Kubernetes**: Deployment and orchestration for scalability.
+
+## Architecture
+- **Game Tables as Actors**: Each table runs as an independent goroutine, processing player actions and maintaining state, echoing Erlang’s lightweight process model.
+- **gRPC Services**: Manage client connections, game logic, and inter-service communication (e.g., matchmaking).
+- **Cassandra DB**: Stores events, snapshots, and player data in a fault-tolerant, distributed system.
+- **Event Sourcing + Snapshots**: Rebuilds game state from events, with snapshots for quick recovery.
+- **Load Balancing**: Distributed across nodes with Kubernetes, inspired by Erlang’s cluster scalability.
+
+## Prerequisites
+- Go 1.21+
+- Docker
+- Cassandra 4.x
+- gRPC and Protocol Buffers
+- Kubernetes (optional, for production)
+
+## Installation
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/jamie0xgitc0decat/OpenGoPoker.git
+   cd opengopoker
+   ```
 
 Copy
-git clone https://github.com/jamie0xgitc0decat/OpenGoPoker.git
+
 cd opengopoker
 Install dependencies:
 bash
